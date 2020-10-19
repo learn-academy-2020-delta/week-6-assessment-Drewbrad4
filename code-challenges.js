@@ -10,15 +10,15 @@ var people = [
 ]
 // Expected output example: "Ford Prefect is a hitchhiker." "Zaphod Beeblebrox is a president of the galaxy." "Arthus Dent is a radio employee."
 
-const peopleInfo = (object) => {
-  // empty array for our sentences.
-  let sentences = []
-  // Map through array of objects and push desired sentence in. 
-  object.map(person => {
-    sentences.push(`${person.name[0].toUpperCase() + person.name.slice(1)} is a ${person.occupation}.`)
-  })
-  // Join sentence array into string.
-  return sentences.join(" ")
+const peopleInfo = (array) => {
+  // map through and split the name into an arr of two strings
+  return array.map(object => {
+    let splitName = object.name.split(" ")
+    // uppercase the first character and return to a single string with added sentence. 
+    return splitName.map(name => {
+      return name.charAt(0).toUpperCase() + name.substr(1)
+    }).join(" ").concat(" is a ", object.occupation, ".")
+  }).join(" ")
 }
 
 console.log(peopleInfo(people), "\n");
@@ -53,7 +53,7 @@ const noDupes = (...arr) => {
       joinedArr = [...joinedArr, ...array]
   }); 
   // return all items that only have a single index value
-  return joinedArr.filter((item, index) => joinedArr.indexOf(item) == index)
+  return joinedArr.filter((item, index) => joinedArr.indexOf(item) === index)
 }
 
 console.log(noDupes(testingArray3, testingArray4))
