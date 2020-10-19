@@ -58,4 +58,4 @@ method="DELETE" /users/1    users#destroy    This will delete a specific user wi
   7. As a user I can edit the to do list name.
   8. As a user I can edit the task name and description.
   9. As a user I can move a task up or down on the to do list, rearranging the order.
-  10. As a user I can mark a task as in progress. 
+  10. As a user I can delete a task. 
